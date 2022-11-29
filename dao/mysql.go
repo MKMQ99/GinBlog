@@ -1,6 +1,7 @@
-package model
+package dao
 
 import (
+	"GinBlog/model"
 	"GinBlog/utils"
 	"fmt"
 	"gorm.io/driver/mysql"
@@ -37,7 +38,7 @@ func InitDb() {
 		fmt.Printf("连接数据库失败，请检查参数：", err)
 	}
 
-	err = db.AutoMigrate(&User{}, &Article{}, &Category{})
+	err = db.AutoMigrate(&model.User{}, &model.Article{}, &model.Category{})
 	if err != nil {
 		fmt.Printf("迁移错误：", err)
 	}

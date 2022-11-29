@@ -1,11 +1,11 @@
 package main
 
 import (
-	"GinBlog/model"
+	"GinBlog/dao"
 	"GinBlog/routes"
 )
 
 func main() {
-	model.InitDb()
+	dao.InitDb()
 	routes.InitRouter()
 }

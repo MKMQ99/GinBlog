@@ -56,11 +56,25 @@ func EditUser(c *gin.Context) {
 	var data model.User
 	id, _ := strconv.Atoi(c.Param("id"))
 	_ = c.ShouldBind(&data)
-
-	code := dao.CheckUpUser(id, data.Username)
+	code = dao.CheckUpUser(uint(id), data.Username)
+	if code == errmsg.SUCCSE {
+		dao.EditUser(id, &data)
+	}
+	if code == errmsg.ERROR_USERNAME_USED {
+		c.Abort()
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"status":  code,
+		"message": errmsg.GetErrMsg(code),
+	})
 }
 
 // 删除用户
 func DeleteUser(c *gin.Context) {
-
+	id, _ := strconv.Atoi(c.Param("id"))
+	code := dao.DeleteUser(id)
+	c.JSON(http.StatusOK, gin.H{
+		"status":  code,
+		"message": errmsg.GetErrMsg(code),
+	})
 }

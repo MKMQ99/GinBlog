@@ -1,0 +1,5 @@
+time="2022-12-01 21:42:48" level=info Agent=PostmanRuntime/7.29.2 DataSize=70 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=GET Path="/api/v1/admin/category?pagesize=1&pagenum=2" SpendTime="20 ms" status=200
+time="2022-12-01 21:59:59" level=info Agent=PostmanRuntime/7.29.2 DataSize=70 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=GET Path="/api/v1/admin/category?pagesize=1&pagenum=2" SpendTime="80 ms" status=200
+time="2022-12-01 22:00:48" level=info Agent=PostmanRuntime/7.29.2 DataSize=70 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=GET Path="/api/v1/admin/category?pagesize=1&pagenum=2" SpendTime="19 ms" status=200
+time="2022-12-01 22:00:52" level=info Agent=PostmanRuntime/7.29.2 DataSize=349 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=GET Path="/api/v1/admin/article?pagesize=1&pagenum=2" SpendTime="12 ms" status=200
+time="2022-12-01 22:00:54" level=info Agent=PostmanRuntime/7.29.2 DataSize=367 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=GET Path=/api/v1/admin/article/info/1 SpendTime="64 ms" status=200

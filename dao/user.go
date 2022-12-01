@@ -83,3 +83,19 @@ func DeleteUser(id int) int {
 	}
 	return errmsg.SUCCSE
 }
+
+// 登录验证
+func CheckLogin(username string, password string) (model.User, int) {
+	var user model.User
+	db.Where("username = ?", username).First(&user)
+	if user.ID == 0 {
+		return user, errmsg.ERROR_USER_NOT_EXIST
+	}
+	if encryptPassword(password) != user.Password {
+		return user, errmsg.ERROR_PASSWORD_WRONG
+	}
+	if user.Role != 1 {
+		return user, errmsg.ERROR_USER_NO_RIGHT
+	}
+	return user, errmsg.SUCCSE
+}

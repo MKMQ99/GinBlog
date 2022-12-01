@@ -3,6 +3,7 @@ module GinBlog
 go 1.19
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.8.1
 	gopkg.in/ini.v1 v1.67.0
 	gorm.io/driver/mysql v1.4.4

@@ -4,12 +4,12 @@ import (
 	"GinBlog/utils"
 	"GinBlog/utils/errmsg"
 	"context"
+	"fmt"
 	"github.com/qiniu/go-sdk/v7/auth/qbox"
 	"github.com/qiniu/go-sdk/v7/storage"
 	"mime/multipart"
 )
 
-var Zone = utils.Zone
 var AccessKey = utils.AccessKey
 var SecretKey = utils.SecretKey
 var Bucket = utils.Bucket
@@ -22,8 +22,12 @@ func UpLoadFile(file multipart.File, fileSize int64) (string, int) {
 	}
 	mac := qbox.NewMac(AccessKey, SecretKey)
 	upToken := putPolicy.UploadToken(mac)
-
-	cfg := setConfig()
+	region, _ := storage.GetRegion(AccessKey, Bucket)
+	cfg := storage.Config{
+		Region:        region,
+		UseCdnDomains: false,
+		UseHTTPS:      false,
+	}
 
 	putExtra := storage.PutExtra{}
 
@@ -34,28 +38,9 @@ func UpLoadFile(file multipart.File, fileSize int64) (string, int) {
 	if err != nil {
 		return "", errmsg.ERROR
 	}
+	fmt.Printf("%s\n", ImgUrl)
+
 	url := ImgUrl + ret.Key
+	fmt.Printf("%s\n", url)
 	return url, errmsg.SUCCSE
-}
-
-func setConfig() storage.Config {
-	cfg := storage.Config{
-		Zone:          selectZone(Zone),
-		UseCdnDomains: false,
-		UseHTTPS:      false,
-	}
-	return cfg
-}
-
-func selectZone(id int) *storage.Zone {
-	switch id {
-	case 1:
-		return &storage.ZoneHuadong
-	case 2:
-		return &storage.ZoneHuabei
-	case 3:
-		return &storage.ZoneHuanan
-	default:
-		return &storage.ZoneHuadong
-	}
 }

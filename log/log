@@ -1,3 +1,10 @@
-time="2022-12-01T22:00:48+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=70 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=GET Path="/api/v1/admin/category?pagesize=1&pagenum=2" SpendTime="19 ms" status=200
-time="2022-12-01T22:00:52+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=349 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=GET Path="/api/v1/admin/article?pagesize=1&pagenum=2" SpendTime="12 ms" status=200
-time="2022-12-01T22:00:54+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=367 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=GET Path=/api/v1/admin/article/info/1 SpendTime="64 ms" status=200
+time="2022-12-02T15:13:37+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=99 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="337 ms" status=200
+time="2022-12-02T14:42:34+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=40 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="112 ms" status=200
+time="2022-12-02T14:53:43+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=58 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="0 ms" status=200
+time="2022-12-02T14:53:50+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=40 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="171 ms" status=200
+time="2022-12-02T15:00:53+08:00" level=error Agent=PostmanRuntime/7.29.2 DataSize=0 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="8 ms" status=500
+time="2022-12-02T15:00:58+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=40 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="147 ms" status=200
+"2022-12-01T22:29:20+08:00" level=error Agent=PostmanRuntime/7.29.2 DataSize=0 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="5 ms" status=500
+time="2022-12-01T22:30:04+08:00" level=error Agent=PostmanRuntime/7.29.2 DataSize=0 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="4 ms" status=500
+time="2022-12-01T22:30:53+08:00" level=error Agent=PostmanRuntime/7.29.2 DataSize=0 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="4 ms" status=500
+time="2022-12-01T22:30:59+08:00" level=error Agent=PostmanRuntime/7.29.2 DataSize=0 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="5 ms" status=500

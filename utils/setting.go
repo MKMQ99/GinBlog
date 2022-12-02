@@ -17,7 +17,6 @@ var (
 	DbPassword string
 	DbName     string
 
-	Zone       int
 	AccessKey  string
 	SecretKey  string
 	Bucket     string
@@ -50,7 +49,6 @@ func LoadData(file *ini.File) {
 }
 
 func LoadQiniu(file *ini.File) {
-	Zone = file.Section("qiniu").Key("Zone").MustInt(1)
 	AccessKey = file.Section("qiniu").Key("AccessKey").String()
 	SecretKey = file.Section("qiniu").Key("SecretKey").String()
 	Bucket = file.Section("qiniu").Key("Bucket").String()

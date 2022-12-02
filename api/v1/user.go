@@ -4,6 +4,7 @@ import (
 	"GinBlog/dao"
 	"GinBlog/model"
 	"GinBlog/utils/errmsg"
+	"GinBlog/utils/validator"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
@@ -19,7 +20,21 @@ func UerExist(c *gin.Context) {
 // 添加用户
 func AddUser(c *gin.Context) {
 	var data model.User
+	var msg string
+	var validCode int
 	_ = c.ShouldBind(&data)
+
+	msg, validCode = validator.Validate(&data)
+	if validCode != errmsg.SUCCSE {
+		c.JSON(
+			http.StatusOK, gin.H{
+				"status":  validCode,
+				"message": msg,
+			},
+		)
+		c.Abort()
+		return
+	}
 	code = dao.CheckUser(data.Username)
 	if code == errmsg.SUCCSE {
 		dao.CreateUser(&data)

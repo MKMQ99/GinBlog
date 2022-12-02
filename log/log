@@ -1,5 +1,5 @@
-time="2022-12-02T15:13:37+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=99 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="337 ms" status=200
-time="2022-12-02T14:42:34+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=40 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="112 ms" status=200
+time="2022-12-02T15:36:30+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=64 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/user/add SpendTime="0 ms" status=200
+time="2022-12-02T15:36:40+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=58 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/user/add SpendTime="0 ms" status=200
 time="2022-12-02T14:53:43+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=58 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="0 ms" status=200
 time="2022-12-02T14:53:50+08:00" level=info Agent=PostmanRuntime/7.29.2 DataSize=40 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="171 ms" status=200
 time="2022-12-02T15:00:53+08:00" level=error Agent=PostmanRuntime/7.29.2 DataSize=0 HostName=LAPTOP-I22BCDN8 Ip=127.0.0.1 Method=POST Path=/api/v1/upload SpendTime="8 ms" status=500

@@ -99,3 +99,13 @@ func CheckLogin(username string, password string) (model.User, int) {
 	}
 	return user, errmsg.SUCCSE
 }
+
+// GetUser 查询用户
+func GetUser(id int) (model.User, int) {
+	var user model.User
+	err := db.Limit(1).Where("ID = ?", id).Find(&user).Error
+	if err != nil {
+		return user, errmsg.ERROR
+	}
+	return user, errmsg.SUCCSE
+}

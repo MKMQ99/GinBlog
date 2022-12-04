@@ -12,7 +12,9 @@ import {
   Table,
   Row,
   Col,
-  ConfigProvider
+  ConfigProvider,
+  Switch,
+  Modal
  } from 'ant-design-vue'
 
 message.config({
@@ -21,6 +23,7 @@ message.config({
   maxCount: 3
 })
 Vue.prototype.$message = message
+Vue.prototype.$confirm = Modal.confirm
 
 Vue.use(Button)
 Vue.use(FormModel)
@@ -33,3 +36,5 @@ Vue.use(Table)
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(ConfigProvider)
+Vue.use(Modal)
+Vue.use(Switch)

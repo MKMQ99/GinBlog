@@ -52,13 +52,24 @@ func encryptPassword(oPassword string) string {
 }
 
 // 查询用户列表
-func GetUsers(pageSize int, pageNum int) []model.User {
+func GetUsers(username string, pageSize int, pageNum int) ([]model.User, int64) {
 	var users []model.User
-	err := db.Limit(pageSize).Offset((pageNum - 1) * pageSize).Find(&users).Error
-	if err != nil && err != gorm.ErrRecordNotFound {
-		return nil
+	var total int64
+	if username != "" {
+		db.Select("id,username,role,created_at").Where(
+			"username LIKE ?", username+"%",
+		).Limit(pageSize).Offset((pageNum - 1) * pageSize).Find(&users)
+		db.Model(&users).Where(
+			"username LIKE ?", username+"%",
+		).Count(&total)
+		return users, total
 	}
-	return users
+	err := db.Limit(pageSize).Offset((pageNum - 1) * pageSize).Find(&users).Error
+	db.Model(&users).Count(&total)
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return nil, 0
+	}
+	return users, total
 }
 
 // 编辑用户信息
@@ -108,4 +119,16 @@ func GetUser(id int) (model.User, int) {
 		return user, errmsg.ERROR
 	}
 	return user, errmsg.SUCCSE
+}
+
+// ChangePassword 修改密码
+func ChangePassword(id int, data *model.User) int {
+	var maps = make(map[string]interface{})
+	maps["password"] = data.Password
+
+	err = db.Select("password").Where("id = ?", id).Updates(&data).Error
+	if err != nil {
+		return errmsg.ERROR
+	}
+	return errmsg.SUCCSE
 }

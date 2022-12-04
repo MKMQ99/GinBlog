@@ -51,17 +51,19 @@ func AddUser(c *gin.Context) {
 func GetUsers(c *gin.Context) {
 	pageSize, _ := strconv.Atoi(c.Query("pagesize"))
 	pageNum, _ := strconv.Atoi(c.Query("pagenum"))
+	username := c.Query("username")
 	if pageSize == 0 {
 		pageSize = -1
 	}
 	if pageNum == 0 {
 		pageNum = 1
 	}
-	data := dao.GetUsers(pageSize, pageNum)
+	data, total := dao.GetUsers(username, pageSize, pageNum)
 	code = errmsg.SUCCSE
 	c.JSON(http.StatusOK, gin.H{
 		"status":  code,
 		"data":    data,
+		"total":   total,
 		"message": errmsg.GetErrMsg(code),
 	})
 }
@@ -109,5 +111,20 @@ func GetUserInfo(c *gin.Context) {
 			"message": errmsg.GetErrMsg(code),
 		},
 	)
+}
 
+// ChangeUserPassword 修改密码
+func ChangeUserPassword(c *gin.Context) {
+	var data model.User
+	id, _ := strconv.Atoi(c.Param("id"))
+	_ = c.ShouldBindJSON(&data)
+
+	code := dao.ChangePassword(id, &data)
+
+	c.JSON(
+		http.StatusOK, gin.H{
+			"status":  code,
+			"message": errmsg.GetErrMsg(code),
+		},
+	)
 }

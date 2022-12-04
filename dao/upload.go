@@ -4,7 +4,6 @@ import (
 	"GinBlog/utils"
 	"GinBlog/utils/errmsg"
 	"context"
-	"fmt"
 	"github.com/qiniu/go-sdk/v7/auth/qbox"
 	"github.com/qiniu/go-sdk/v7/storage"
 	"mime/multipart"
@@ -38,9 +37,7 @@ func UpLoadFile(file multipart.File, fileSize int64) (string, int) {
 	if err != nil {
 		return "", errmsg.ERROR
 	}
-	fmt.Printf("%s\n", ImgUrl)
 
 	url := ImgUrl + ret.Key
-	fmt.Printf("%s\n", url)
 	return url, errmsg.SUCCSE
 }

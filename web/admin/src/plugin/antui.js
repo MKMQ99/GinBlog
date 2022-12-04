@@ -14,7 +14,9 @@ import {
   Col,
   ConfigProvider,
   Switch,
-  Modal
+  Modal,
+  Select,
+  Upload
  } from 'ant-design-vue'
 
 message.config({
@@ -38,3 +40,5 @@ Vue.use(Col)
 Vue.use(ConfigProvider)
 Vue.use(Modal)
 Vue.use(Switch)
+Vue.use(Select)
+Vue.use(Upload)

@@ -27,6 +27,8 @@ func InitRouter() {
 		auth.PUT("category/:id", v1.EditCate)
 		auth.DELETE("category/:id", v1.DeleteCate)
 		// 文章模块的路由接口
+		auth.GET("admin/article/info/:id", v1.GetArtInfo)
+		auth.GET("admin/article", v1.GetArt)
 		auth.POST("article/add", v1.AddArticle)
 		auth.PUT("article/:id", v1.EditArt)
 		auth.DELETE("article/:id", v1.DeleteArt)

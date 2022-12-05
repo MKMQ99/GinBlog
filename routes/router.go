@@ -45,7 +45,7 @@ func InitRouter() {
 		auth.PUT("admin/changepw/:id", v1.ChangeUserPassword)
 		// 更新个人设置
 		auth.GET("admin/profile/:id", v1.GetProfile)
-		auth.PUT("profile/:id", v1.UpdateProfile)
+		auth.PUT("admin/profile/:id", v1.UpdateProfile)
 		// 评论模块
 		auth.GET("comment/list", v1.GetCommentList)
 		auth.DELETE("delcomment/:id", v1.DeleteComment)
@@ -70,6 +70,7 @@ func InitRouter() {
 
 		// 登录控制模块
 		router.POST("login", v1.Login)
+		router.POST("loginfront", v1.LoginFront)
 
 		// 获取个人设置信息
 		router.GET("profile/:id", v1.GetProfile)

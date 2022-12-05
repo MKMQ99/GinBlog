@@ -132,3 +132,18 @@ func ChangePassword(id int, data *model.User) int {
 	}
 	return errmsg.SUCCSE
 }
+
+// CheckLoginFront 前台登录
+func CheckLoginFront(username string, password string) (model.User, int) {
+	var user model.User
+
+	db.Where("username = ?", username).First(&user)
+
+	if encryptPassword(password) != user.Password {
+		return user, errmsg.ERROR_PASSWORD_WRONG
+	}
+	if user.ID == 0 {
+		return user, errmsg.ERROR_USER_NOT_EXIST
+	}
+	return user, errmsg.SUCCSE
+}

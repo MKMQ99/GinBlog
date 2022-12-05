@@ -38,7 +38,7 @@ func InitDb() {
 		fmt.Printf("连接数据库失败，请检查参数：", err)
 	}
 
-	err = db.AutoMigrate(&model.User{}, &model.Article{}, &model.Category{})
+	err = db.AutoMigrate(&model.User{}, &model.Article{}, &model.Category{}, &model.Comment{}, &model.Profile{})
 	if err != nil {
 		fmt.Printf("迁移错误：", err)
 	}

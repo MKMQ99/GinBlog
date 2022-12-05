@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkadmin"]=self["webpackChunkadmin"]||[]).push([[726],{20152:function(n,u,t){t.r(u),t.d(u,{default:function(){return c}});var e=function(){var n=this;n._self._c;return n._m(0)},r=[function(){var n=this,u=n._self._c;return u("div",[u("h3",[n._v("欢迎来到GINBLOG后台管理页面")])])}],l=t(1001),i={},s=(0,l.Z)(i,e,r,!1,null,null,null),c=s.exports}}]);
+//# sourceMappingURL=Index.846cb7e5.js.map

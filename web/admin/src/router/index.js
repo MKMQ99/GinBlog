@@ -9,6 +9,8 @@ const AddArt = () => import(/* webpackChunkName: "AddArt" */ '../components/arti
 const ArtList = () => import(/* webpackChunkName: "ArtList" */ '../components/article/ArtList.vue')
 const CateList = () => import(/* webpackChunkName: "CateList" */ '../components/category/CateList.vue')
 const UserList = () => import(/* webpackChunkName: "UserList" */ '../components/user/UserList.vue')
+const Profile = () => import(/* webpackChunkName: "UserList" */ '../components/user/Profile.vue')
+const CommentList = () => import(/* webpackChunkName: "UserList" */ '../components/comment/commentList.vue')
 
 Vue.use(VueRouter)
 
@@ -22,7 +24,7 @@ const routes = [
     component: Login
   },
   {
-    path: '/admin',
+    path: '/',
     name: 'admin',
     meta: {
       title: 'GinBlog 后台管理页面'
@@ -70,6 +72,20 @@ const routes = [
         component: UserList,
         meta: {
           title: '用户列表'
+        }
+      },
+      {
+        path: 'profile',
+        component: Profile,
+        meta: {
+          title: '个人设置'
+        }
+      },
+      {
+        path: 'commentlist',
+        component: CommentList,
+        meta: {
+          title: '评论管理'
         }
       }
     ]

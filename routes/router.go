@@ -14,6 +14,13 @@ func InitRouter() {
 	r.Use(gin.Recovery())
 	r.Use(middleware.Cors())
 
+	r.LoadHTMLGlob("static/admin/index.html")
+	r.Static("/admin", "./web/admin/dist")
+
+	r.GET("/admin", func(c *gin.Context) {
+		c.HTML(200, "index.html", nil)
+	})
+
 	auth := r.Group("api/v1")
 	auth.Use(middleware.JwtToken())
 	{
@@ -36,6 +43,14 @@ func InitRouter() {
 		auth.POST("upload", v1.UpLoad)
 		//修改密码
 		auth.PUT("admin/changepw/:id", v1.ChangeUserPassword)
+		// 更新个人设置
+		auth.GET("admin/profile/:id", v1.GetProfile)
+		auth.PUT("profile/:id", v1.UpdateProfile)
+		// 评论模块
+		auth.GET("comment/list", v1.GetCommentList)
+		auth.DELETE("delcomment/:id", v1.DeleteComment)
+		auth.PUT("checkcomment/:id", v1.CheckComment)
+		auth.PUT("uncheckcomment/:id", v1.UncheckComment)
 	}
 	router := r.Group("api/v1")
 	{
@@ -55,6 +70,15 @@ func InitRouter() {
 
 		// 登录控制模块
 		router.POST("login", v1.Login)
+
+		// 获取个人设置信息
+		router.GET("profile/:id", v1.GetProfile)
+
+		// 评论模块
+		router.POST("addcomment", v1.AddComment)
+		router.GET("comment/info/:id", v1.GetComment)
+		router.GET("commentfront/:id", v1.GetCommentListFront)
+		router.GET("commentcount/:id", v1.GetCommentCount)
 	}
 
 	r.Run(utils.HttpPort)

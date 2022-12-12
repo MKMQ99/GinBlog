@@ -4,8 +4,16 @@ import (
 	v1 "GinBlog/api/v1"
 	"GinBlog/middleware"
 	"GinBlog/utils"
+	"github.com/gin-contrib/multitemplate"
 	"github.com/gin-gonic/gin"
 )
+
+func createMyRender() multitemplate.Renderer {
+	p := multitemplate.NewRenderer()
+	p.AddFromFiles("admin", "web/admin/dist/index.html")
+	p.AddFromFiles("front", "web/front/dist/index.html")
+	return p
+}
 
 func InitRouter() {
 	gin.SetMode(utils.AppMode)
@@ -14,11 +22,17 @@ func InitRouter() {
 	r.Use(gin.Recovery())
 	r.Use(middleware.Cors())
 
-	r.LoadHTMLGlob("static/admin/index.html")
+	r.HTMLRender = createMyRender()
+	r.Static("/static", "./web/front/dist/static")
 	r.Static("/admin", "./web/admin/dist")
+	r.StaticFile("/favicon.ico", "/web/front/dist/favicon.ico")
+
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(200, "front", nil)
+	})
 
 	r.GET("/admin", func(c *gin.Context) {
-		c.HTML(200, "index.html", nil)
+		c.HTML(200, "admin", nil)
 	})
 
 	auth := r.Group("api/v1")

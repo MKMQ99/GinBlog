@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-contrib/cors v1.4.0
+	github.com/gin-contrib/multitemplate v0.0.0-20220829131020-8c2a8441bc2b
 	github.com/gin-gonic/gin v1.8.1
 	gopkg.in/ini.v1 v1.67.0
 	gorm.io/driver/mysql v1.4.4
@@ -12,6 +13,7 @@ require (
 )
 
 require (
+	github.com/adeven/go-wrk v0.0.0-20200418124433-63e11dd31fef // indirect
 	github.com/jonboulle/clockwork v0.3.0 // indirect
 	golang.org/x/sync v0.0.0-20201207232520-09787c993a3a // indirect
 )

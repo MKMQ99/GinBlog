@@ -11,5 +11,8 @@ module.exports = defineConfig({
       return args
     })
   },
-  productionSourceMap: false
+  productionSourceMap: false,
+  devServer:{
+    host:'42.192.21.110',
+  }
 })
